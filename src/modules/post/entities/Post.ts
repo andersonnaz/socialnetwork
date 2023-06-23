@@ -1,4 +1,4 @@
-import { Comment } from "../../message/entities/Comment";
+import { Comment } from "../../comment/entities/Comment";
 import { v4 as uuid } from "uuid";
 export class Post {
   private readonly _id: string;
