@@ -3,9 +3,14 @@ export class Email {
   private readonly email: string;
   private readonly name: string;
 
-  constructor(name: string, email: string){
+  private constructor(name: string, email: string){
     this.name = name;
     this.email = email;
+  }
+
+  static create(name: string, email: string): Email {
+    this.validate(email);
+    return new Email(name, email);
   }
 
   static validate(email: string): boolean {
