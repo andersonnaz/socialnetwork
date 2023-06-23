@@ -36,6 +36,22 @@ export class Comment {
     return uuid();
   }
 
+  get id(): string {
+    return this._id;
+  }
+
+  get postId(): string {
+    return this._postId;
+  }
+
+  get authorId(): string {
+    return this._authorId;
+  }
+
+  get createdAt(): Date {
+    return this._createdAt;
+  }
+
   get content(): string {
     return this._content;
   }
