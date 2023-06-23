@@ -1,6 +1,7 @@
 import { Address } from "./Address";
 import { Cpf } from "./Cpf";
 import { Email } from "./Email";
+import { v4 as uuid } from 'uuid';
 
 export class User {
   private readonly id: string;
@@ -11,10 +12,15 @@ export class User {
   private password: string;
 
   private constructor(name: string, address: Address, cpf: Cpf, email: Email, password: string){
+    this.id = this.generateId();
     this.name = name;
     this.address = address;
     this.cpf = cpf;
     this.email = email;
     this.password = password;
+  }
+
+  private generateId(): string {
+    return uuid();
   }
 }
