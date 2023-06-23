@@ -3,9 +3,9 @@ import { v4 as uuid } from "uuid";
 export class Post {
   private readonly _id: string;
   private readonly _authorId: string;
-  private readonly _title: string;
-  private readonly _content: string;
   private readonly _date: Date;
+  private _title: string;
+  private _content: string;
   private _comments: Comment[];
 
   private constructor(authorId: string, title: string, content: string){
@@ -38,5 +38,43 @@ export class Post {
   private generateId(): string {
     return uuid();
   }
+
+  get id(): string {
+    return this._id;
+  }
+
+  get authorId(): string {
+    return this._authorId;
+  }
+
+  get date(): Date {
+    return this._date;
+  }
+
+  get title(): string {
+    return this._title;
+  }
+
+  get content(): string {
+    return this._content;
+  }
+
+  get comments(): Comment[] {
+    return this._comments;
+  }
+
+  set title(newTitle: string){
+    this._title = newTitle;
+  }
+
+  set content(newContent: string){
+    this._content = newContent;
+  }
+
+  addComent(comment: Comment){
+    this._comments.push(comment);
+  }
+
+
 
 }
