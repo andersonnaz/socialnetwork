@@ -20,8 +20,11 @@ export class User {
     this._password = password;
   }
 
-  static create(name: string, address: Address, cpf: Cpf, email: Email, password: string): User {
+  static create(name: string, street: string, number: number, neighborhood: string, cpfNumber: string, userEmail: string, password: string): User {
     this.validate(name, password);
+    const address = Address.create(street, number, neighborhood);
+    const cpf = Cpf.create(name, cpfNumber);
+    const email = Email.create(name, userEmail);
     return new User(name, address, cpf, email, password);
   }
 
