@@ -17,7 +17,7 @@ export class Cpf {
     if(!number){
       throw new Error('invalid cpf!');
     }
-    if(REGEX_VALIDATE_CPF.test(number)){
+    if(!REGEX_VALIDATE_CPF.test(number)){
       throw new Error('invalid cpf!');
     }
     return true;
