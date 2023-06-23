@@ -1,12 +1,12 @@
 export class Address {
-  private street: string;
-  private number: number;
-  private neighborhood: string;
+  private _street: string;
+  private _number: number;
+  private _neighborhood: string;
 
   private constructor(street: string, number: number, neighborhood: string){
-    this.street = street;
-    this.number = number;
-    this.neighborhood = neighborhood;
+    this._street = street;
+    this._number = number;
+    this._neighborhood = neighborhood;
   }
 
   static create(street: string, number: number, neighborhood: string): Address {
@@ -26,4 +26,47 @@ export class Address {
     }
     return true;
   }
+
+  get street(): string {
+    return this.street;
+  }
+
+  get number(): number {
+    return this._number;
+  }
+
+  get neighborhood(): string {
+    return this._neighborhood;
+  }
+
+  set street(newStreet: string){
+    if(!newStreet){
+      throw new Error('invalid new street!');
+    }
+    if(newStreet === this._street){
+      throw new Error('new street is equal!');
+    }
+    this._street = newStreet;
+  }
+
+  set number(newNumber: number) {
+    if(!newNumber){
+      throw new Error('invalid new number!');
+    }
+    if(newNumber === this._number){
+      throw new Error('new number is equal!');
+    }
+    this._number = newNumber;
+  }
+
+  set neighborhood(newNeighborhood: string) {
+    if(!newNeighborhood){
+      throw new Error('invalid new Neighborhood!');
+    }
+    if(newNeighborhood === this._neighborhood){
+      throw new Error('new neighborhood is equal!');
+    }
+    this._neighborhood = newNeighborhood;
+  }
+
 }
