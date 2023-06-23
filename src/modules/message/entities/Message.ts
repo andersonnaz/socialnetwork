@@ -35,4 +35,24 @@ export class Message {
   private generateId(): string {
     return uuid();
   }
+
+  get id(): string {
+    return this._id;
+  }
+
+  get sender(): string {
+    return this._sender;
+  }
+
+  get recipient(): string {
+    return this._recipient;
+  }
+
+  get content(): string {
+    return this._content;
+  }
+
+  get createAt(): Date {
+    return this._createdAt;
+  }
 }
