@@ -17,6 +17,19 @@ export class Post {
     this._comments = [];
   }
 
+  static validate(authorId: string, title: string, content: string): boolean {
+    if(!authorId){
+      throw new Error('author invalid!');
+    }
+    if(!title){
+      throw new Error('title invalid!');
+    }
+    if(!content){
+      throw new Error('content invalid!');
+    }
+    return true;
+  }
+
   private generateId(): string {
     return uuid();
   }
