@@ -20,6 +20,16 @@ export class User {
     this.password = password;
   }
 
+  static validate(name: string, password: string): boolean {
+    if(!name){
+      throw new Error('invalid name!');
+    }
+    if(!password){
+      throw new Error('invalid password!');
+    }
+    return true;
+  }
+
   private generateId(): string {
     return uuid();
   }
