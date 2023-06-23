@@ -35,4 +35,12 @@ export class Comment {
   private generateId(): string {
     return uuid();
   }
+
+  get content(): string {
+    return this._content;
+  }
+
+  set content(newContent: string) {
+    this._content = newContent;
+  }
 }
