@@ -3,10 +3,15 @@ export class Address {
   private number: number;
   private neighborhood: string;
 
-  constructor(street: string, number: number, neighborhood: string){
+  private constructor(street: string, number: number, neighborhood: string){
     this.street = street;
     this.number = number;
     this.neighborhood = neighborhood;
+  }
+
+  static create(street: string, number: number, neighborhood: string): Address {
+    this.validate(street, number, neighborhood);
+    return new Address(street, number, neighborhood);
   }
 
   static validate(street: string, number: number, neighborhood: string): boolean {
