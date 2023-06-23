@@ -14,6 +14,11 @@ export class Message {
     this._createdAt = new Date();
   }
 
+  static create(sender: string, recipient: string, content: string): Message {
+    this.validade(sender, recipient, content);
+    return new Message(sender, recipient, content);
+  }
+
   static validade(sender: string, recipient: string, content: string): boolean {
     if(!sender){
       throw new Error('sender user invalid!');
