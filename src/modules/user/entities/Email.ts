@@ -1,11 +1,11 @@
 const REGEX_VALIDATE_EMAIL = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 export class Email {
-  private readonly email: string;
-  private readonly name: string;
+  private readonly _email: string;
+  private readonly _name: string;
 
   private constructor(name: string, email: string){
-    this.name = name;
-    this.email = email;
+    this._name = name;
+    this._email = email;
   }
 
   static create(name: string, email: string): Email {
@@ -22,4 +22,13 @@ export class Email {
     }
     return true;
   }
+
+  get name(): string {
+    return this._name;
+  }
+
+  get email(): string {
+    return this._email;
+  }
+
 }
