@@ -8,6 +8,11 @@ export class Cpf {
     this.number = number;
   }
 
+  static create(name: string, number: string): Cpf {
+    this.validate(number);
+    return new Cpf(name, number);
+  }
+
   static validate(number: string): boolean {
     if(!number){
       throw new Error('invalid cpf!');
