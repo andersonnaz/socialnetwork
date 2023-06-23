@@ -20,6 +20,11 @@ export class User {
     this.password = password;
   }
 
+  static create(name: string, address: Address, cpf: Cpf, email: Email, password: string): User {
+    this.validate(name, password);
+    return new User(name, address, cpf, email, password);
+  }
+
   static validate(name: string, password: string): boolean {
     if(!name){
       throw new Error('invalid name!');
