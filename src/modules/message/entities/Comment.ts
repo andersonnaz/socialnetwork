@@ -14,6 +14,11 @@ export class Comment {
     this._content = content;
   }
 
+  static create(postId: string, authorId: string, content: string): Comment {
+    this.validate(postId, authorId, content);
+    return new Comment(postId, authorId, content);
+  }
+
   static validate(postId: string, authorId: string, content: string): boolean {
     if(!postId){
       throw new Error('post id invalid!');
