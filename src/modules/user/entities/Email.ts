@@ -17,7 +17,7 @@ export class Email {
     if(!email){
       throw new Error('invalid email!');
     }
-    if(REGEX_VALIDATE_EMAIL.test(email)){
+    if(!REGEX_VALIDATE_EMAIL.test(email)){
       throw new Error('invalid email!');
     }
     return true;
