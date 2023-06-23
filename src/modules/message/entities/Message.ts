@@ -14,6 +14,19 @@ export class Message {
     this._createdAt = new Date();
   }
 
+  static validade(sender: string, recipient: string, content: string): boolean {
+    if(!sender){
+      throw new Error('sender user invalid!');
+    }
+    if(!recipient){
+      throw new Error('recipient user invalid!');
+    }
+    if(!content){
+      throw new Error('content invalid!');
+    }
+    return true;
+  }
+
   private generateId(): string {
     return uuid();
   }
