@@ -17,6 +17,11 @@ export class Post {
     this._comments = [];
   }
 
+  static create(authorId: string, title: string, content: string): Post {
+    this.validate(authorId, title, content);
+    return new Post(authorId, title, content);
+  }
+
   static validate(authorId: string, title: string, content: string): boolean {
     if(!authorId){
       throw new Error('author invalid!');
