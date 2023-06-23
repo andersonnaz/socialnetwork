@@ -1,11 +1,11 @@
 const REGEX_VALIDATE_CPF = /([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})/;
 export class Cpf {
-  private readonly name: string;
-  private readonly number: string;
+  private readonly _name: string;
+  private readonly _number: string;
 
-  constructor(name: string, number: string){
-    this.name = name;
-    this.number = number;
+  private constructor(name: string, number: string){
+    this._name = name;
+    this._number = number;
   }
 
   static create(name: string, number: string): Cpf {
@@ -21,5 +21,13 @@ export class Cpf {
       throw new Error('invalid cpf!');
     }
     return true;
+  }
+
+  get name(): string {
+    return this._name;
+  }
+
+  get number(): string {
+    return this._number;
   }
 }
