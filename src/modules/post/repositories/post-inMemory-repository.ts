@@ -14,7 +14,10 @@ export class PostInMemoryRepository implements PostRepository {
   }
 
   listUserPosts(userId: string): Post[] {
-
+    const filteredPostsByUser = this._posts.filter((post) => {
+      return post.authorId === userId;
+    })
+    return filteredPostsByUser;
   }
 
   findOne(id: string): Post | undefined {
