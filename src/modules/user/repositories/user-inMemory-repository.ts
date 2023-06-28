@@ -55,8 +55,21 @@ class UserInMemoryRepository implements UserRepository{
     return this._friendship;
   }
 
-  deleteFriendship(userId: string, friendId: string): Tuple[] {
-
+  deleteFriendship(userId: string, friendId: string): void {
+    const user = this.findOne(userId);
+    if(!user){
+      throw new Error('user not found!');
+    }
+    const findedUser = this._friendship.find((user) => {
+      return user[0] === userId;
+    })
+    if(!findedUser){
+      throw new Error('user not found!');
+    }
+    const filteredFriendship = findedUser[1].filter((friend) => {
+      return friend !== friendId;
+    })
+    findedUser[1] = filteredFriendship;
   }
 }
 
