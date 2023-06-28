@@ -12,7 +12,7 @@ class UserInMemoryRepository implements UserRepository{
   }
 
   list(): User[] {
-
+    return this._database;
   }
 
   delete(id: string): void {
