@@ -23,7 +23,12 @@ class UserInMemoryRepository implements UserRepository{
   }
 
   update(id: string, param: Partial<User>): User {
-
+    const user = this.findOne(id);
+    if(!user){
+      throw new Error('user not found!');
+    }
+    Object.assign(user, param);
+    return user;
   }
 
   findOne(id: string): User | undefined{
