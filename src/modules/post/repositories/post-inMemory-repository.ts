@@ -6,7 +6,7 @@ export class PostInMemoryRepository implements PostRepository {
   private _posts: Post[] = [];
 
   save(param: Post): void {
-
+    this._posts.push(param);
   }
 
   list(): Post[] {
