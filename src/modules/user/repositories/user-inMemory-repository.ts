@@ -16,15 +16,24 @@ class UserInMemoryRepository implements UserRepository{
   }
 
   delete(id: string): void {
-
+    const databaseFiltered = this._database.filter((user) => {
+      return user.id !== id;
+    })
+    this._database = databaseFiltered;
   }
 
   update(id: string, param: Partial<User>): User {
 
   }
 
-  findOne(id: string): User {
-
+  findOne(id: string): User | undefined{
+    const user = this._database.find((user) => {
+      return user.id === id;
+    })
+    if(!user){
+      throw new Error('user not found!');
+    }
+    return user;
   }
 
   createFriendship(): void {
