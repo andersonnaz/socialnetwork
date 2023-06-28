@@ -1,3 +1,3 @@
 export interface Save<T> {
-  save(param: T): T;
+  save(param: T): void;
 }
