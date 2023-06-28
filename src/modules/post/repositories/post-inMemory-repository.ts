@@ -10,7 +10,7 @@ export class PostInMemoryRepository implements PostRepository {
   }
 
   list(): Post[] {
-
+    return this._posts;
   }
 
   listUserPosts(userId: string): Post[] {
