@@ -1,3 +1,3 @@
 export interface FindOne<T> {
-  findOne(id: string): T;
+  findOne(id: string): T | undefined;
 }
