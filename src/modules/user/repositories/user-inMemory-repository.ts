@@ -8,7 +8,7 @@ class UserInMemoryRepository implements UserRepository{
   private _friendship: Tuple[] = [];
 
   save(param: User): void {
-
+    this._database.push(param);
   }
 
   list(): User[] {
