@@ -15,6 +15,6 @@ export interface UserRepository extends
   FindOne<User>{
 
   createFriendship(userId: string, friendId: string): Tuple[];
-  deleteFriendship(userId: string, friendId: string): Tuple[];
+  deleteFriendship(userId: string, friendId: string): void;
 }
 
