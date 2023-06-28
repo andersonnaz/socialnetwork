@@ -5,6 +5,8 @@ import { Save } from "@shared/database/repository/Save";
 import { Update } from "@shared/database/repository/Update";
 import { User } from "../entities/User";
 
+export type Tuple = [user: string, friends: string[]];
+
 export interface UserRepository extends
   Save<User>,
   Delete,
@@ -12,7 +14,7 @@ export interface UserRepository extends
   Update<User>,
   FindOne<User>{
 
-  createFriendship(): void;
-  deleteFriendship(): void;
+  createFriendship(userId: string, friendId: string): Tuple[];
+  deleteFriendship(userId: string, friendId: string): Tuple[];
 }
 
