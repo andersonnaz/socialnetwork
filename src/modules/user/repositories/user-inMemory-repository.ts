@@ -1,7 +1,5 @@
 import { User } from "../entities/User";
-import { UserRepository } from "./user-repository";
-
-type Tuple = [user: string, friends: string[]];
+import { UserRepository, Tuple } from "./user-repository";
 
 class UserInMemoryRepository implements UserRepository{
   private _database: User[] = [];
@@ -41,11 +39,23 @@ class UserInMemoryRepository implements UserRepository{
     return user;
   }
 
-  createFriendship(): void {
-
+  createFriendship(userId: string, friendId: string): Tuple[] {
+    const user = this.findOne(userId);
+    if(!user){
+      throw new Error('user not found!');
+    }
+    const findedUser = this._friendship.find((user) => {
+      return user[0] === userId;
+    })
+    if(!findedUser){
+      this._friendship.push([userId, [friendId]]);
+      return this._friendship;
+    }
+    findedUser[1].push(friendId);
+    return this._friendship;
   }
 
-  deleteFriendship(): void {
+  deleteFriendship(userId: string, friendId: string): Tuple[] {
 
   }
 }
