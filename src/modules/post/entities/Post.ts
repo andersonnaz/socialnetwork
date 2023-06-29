@@ -71,10 +71,11 @@ export class Post {
     this._content = newContent;
   }
 
+  set comments(comments: Comment[]) {
+    this._comments = comments;
+  }
+
   addComent(comment: Comment){
     this._comments.push(comment);
   }
-
-
-
 }
