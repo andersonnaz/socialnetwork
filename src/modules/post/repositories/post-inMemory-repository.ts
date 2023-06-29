@@ -21,7 +21,13 @@ export class PostInMemoryRepository implements PostRepository {
   }
 
   findOne(id: string): Post | undefined {
-
+    const findedPost = this._posts.find((post) => {
+      return post.id === id;
+    })
+    if(!findedPost){
+      throw new Error('post not found!');
+    }
+    return findedPost;
   }
 
   update(id: string, param: Partial<Post>): Post {
