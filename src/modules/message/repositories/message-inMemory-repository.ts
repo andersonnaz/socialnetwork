@@ -37,6 +37,9 @@ export class MessageInMemoryRepository implements MessageRepository {
   }
 
   listByRecipier(userId: string): Message[] {
-
+    const messages = this._database.filter((message) => {
+      return message.recipier === userId;
+    })
+    return messages;
   }
 }
