@@ -31,7 +31,12 @@ export class PostInMemoryRepository implements PostRepository {
   }
 
   update(id: string, param: Partial<Post>): Post {
-
+    const post = this.findOne(id);
+    if(!post){
+      throw new Error('post not found!');
+    }
+    Object.assign(post, param);
+    return post;
   }
 
   delete(id: string): void {
