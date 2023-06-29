@@ -40,7 +40,14 @@ export class PostInMemoryRepository implements PostRepository {
   }
 
   delete(id: string): void {
-
+    const post = this.findOne(id);
+    if(!post){
+      throw new Error('post not found!');
+    }
+    const postsFiltered = this._posts.filter((post) => {
+      return post.id !== id;
+    })
+    this._posts = postsFiltered;
   }
 
   createComment(postId: string, authorId: string, content: string): void {
