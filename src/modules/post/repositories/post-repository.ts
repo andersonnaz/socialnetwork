@@ -16,5 +16,5 @@ export interface PostRepository extends
   listUserPosts(userId: string): Post[];
   createComment(postId: string, authorId: string, content: string): void;
   editComment(postId: string, commentId: string, content: string): Comment;
-  deleteComment(commentId: string): void;
+  deleteComment(postId: string, commentId: string): void;
 }
