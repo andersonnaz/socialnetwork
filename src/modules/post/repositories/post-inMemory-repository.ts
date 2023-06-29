@@ -55,8 +55,7 @@ export class PostInMemoryRepository implements PostRepository {
     if(!post){
       throw new Error('post not found!');
     }
-    const comment = Comment.create(postId, authorId, content);
-    post.addComent(comment);
+    post.createComment(authorId, content);
   }
 
   editComment(postId: string, commentId: string, content: string): Comment {
