@@ -2,7 +2,7 @@ import { Comment } from "@modules/comment/entities/Comment";
 import { Post } from "../entities/Post";
 import { PostRepository } from "./post-repository";
 
-export class PostInMemoryRepository implements PostRepository {
+class PostInMemoryRepository implements PostRepository {
   private _posts: Post[] = [];
 
   save(param: Post): void {
@@ -84,3 +84,5 @@ export class PostInMemoryRepository implements PostRepository {
     post.comments = commentsFiltered;
   }
 }
+
+export default new PostInMemoryRepository();
