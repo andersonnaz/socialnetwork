@@ -75,7 +75,12 @@ export class Post {
     this._comments = comments;
   }
 
-  addComent(comment: Comment){
+  createComment(authorId: string, content: string): void{
+    const comment = Comment.create(this._id, authorId, content);
+    this.addComment(comment);
+  }
+
+  addComment(comment: Comment): void {
     this._comments.push(comment);
   }
 }
