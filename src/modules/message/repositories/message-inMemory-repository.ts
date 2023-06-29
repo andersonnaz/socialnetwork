@@ -30,7 +30,10 @@ export class MessageInMemoryRepository implements MessageRepository {
   }
 
   listBySender(userId: string): Message[] {
-
+    const messages = this._database.filter((message) => {
+      return message.sender === userId;
+    })
+    return messages;
   }
 
   listByRecipier(userId: string): Message[] {
