@@ -1,7 +1,7 @@
 import { Message } from "../entities/Message";
 import { MessageRepository } from "./message-repository";
 
-export class MessageInMemoryRepository implements MessageRepository {
+class MessageInMemoryRepository implements MessageRepository {
   private _database: Message[] = [];
 
   save(param: Message): void {
@@ -43,3 +43,5 @@ export class MessageInMemoryRepository implements MessageRepository {
     return messages;
   }
 }
+
+export default new MessageInMemoryRepository();
