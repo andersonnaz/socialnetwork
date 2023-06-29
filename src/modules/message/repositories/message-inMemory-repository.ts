@@ -18,12 +18,15 @@ export class MessageInMemoryRepository implements MessageRepository {
     return message;
   }
 
-  update(id: string, param: Partial<Message>): Message {
-
-  }
-
   delete(id: string): void {
-
+    const message = this.findOne(id);
+    if(!message){
+      throw new Error('message not found!');
+    }
+    const filteredDatabase = this._database.filter((message) => {
+      return message.id !== id;
+    })
+    this._database = filteredDatabase;
   }
 
   listBySender(userId: string): Message[] {
