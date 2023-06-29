@@ -5,7 +5,7 @@ export class MessageInMemoryRepository implements MessageRepository {
   private _database: Message[] = [];
 
   save(param: Message): void {
-
+    this._database.push(param);
   }
 
   findOne(id: string): Message | undefined {
