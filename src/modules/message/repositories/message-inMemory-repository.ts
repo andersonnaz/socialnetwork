@@ -9,7 +9,13 @@ export class MessageInMemoryRepository implements MessageRepository {
   }
 
   findOne(id: string): Message | undefined {
-
+    const message = this._database.find((message) => {
+      return message.id === id;
+    })
+    if(!message){
+      throw new Error('message not found!');
+    }
+    return message;
   }
 
   update(id: string, param: Partial<Message>): Message {
