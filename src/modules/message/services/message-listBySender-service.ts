@@ -1,7 +1,7 @@
 import { Message } from "../entities/Message";
 import { MessageRepository } from "../repositories/message-repository";
 
-export class MessageListBySender {
+export class MessageListBySenderService {
   private readonly _messageRepository: MessageRepository;
 
   constructor(messageRepository: MessageRepository){
