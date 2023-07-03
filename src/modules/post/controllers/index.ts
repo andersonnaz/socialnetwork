@@ -2,7 +2,7 @@ export * from "./post-add-comment";
 export * from "./post-create";
 export * from "./post-delete";
 export * from "./post-delete-comment";
-export * from "./post-edit";
+export * from "./post-edit-comment";
 export * from "./post-find";
 export * from "./post-lisByUser";
 export * from "./post-list";
