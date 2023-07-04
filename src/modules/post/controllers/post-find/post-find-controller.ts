@@ -1,10 +1,10 @@
-import { PostFindService } from "@modules/post/services";
-import { Request, Response } from "express";
+import { PostFindService } from '@modules/post/services';
+import { Request, Response } from 'express';
 
 export class PostFindController {
   private readonly _postFindService: PostFindService;
 
-  constructor(postFindService: PostFindService){
+  constructor(postFindService: PostFindService) {
     this._postFindService = postFindService;
   }
 
@@ -16,5 +16,5 @@ export class PostFindController {
     } catch (error) {
       return response.status(404).json(error);
     }
-  }
+  };
 }

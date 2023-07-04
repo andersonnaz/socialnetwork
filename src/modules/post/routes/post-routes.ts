@@ -1,4 +1,4 @@
-import { Router } from "express";
+import { Router } from 'express';
 import {
   postAddCommentController,
   postCreateController,
@@ -8,8 +8,8 @@ import {
   postFindController,
   postListByUserController,
   postListController,
-  postUpdateController
-} from "../controllers";
+  postUpdateController,
+} from '../controllers';
 
 const postRouter = Router();
 

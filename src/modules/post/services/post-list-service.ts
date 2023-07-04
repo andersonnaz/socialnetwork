@@ -1,10 +1,10 @@
-import { Post } from "../entities/Post";
-import { PostRepository } from "../repositories/post-repository";
+import { Post } from '../entities/Post';
+import { PostRepository } from '../repositories/post-repository';
 
 export class PostListService {
   private readonly _postRepository: PostRepository;
 
-  constructor(postRepository: PostRepository){
+  constructor(postRepository: PostRepository) {
     this._postRepository = postRepository;
   }
 

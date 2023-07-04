@@ -1,10 +1,10 @@
-import { PostDeleteService } from "@modules/post/services";
-import { Request, Response } from "express";
+import { PostDeleteService } from '@modules/post/services';
+import { Request, Response } from 'express';
 
 export class PostDeleteController {
   private readonly _postDeleteService: PostDeleteService;
 
-  constructor(postDeleteService: PostDeleteService){
+  constructor(postDeleteService: PostDeleteService) {
     this._postDeleteService = postDeleteService;
   }
 
@@ -16,5 +16,5 @@ export class PostDeleteController {
     } catch (error) {
       return response.status(404).json(error);
     }
-  }
+  };
 }

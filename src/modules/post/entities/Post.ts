@@ -1,5 +1,6 @@
-import { Comment } from "../../comment/entities/Comment";
-import { v4 as uuid } from "uuid";
+/* eslint-disable @typescript-eslint/adjacent-overload-signatures */
+import { Comment } from '../../comment/entities/Comment';
+import { v4 as uuid } from 'uuid';
 export class Post {
   private readonly _id: string;
   private readonly _authorId: string;
@@ -8,7 +9,7 @@ export class Post {
   private _content: string;
   private _comments: Comment[];
 
-  private constructor(authorId: string, title: string, content: string){
+  private constructor(authorId: string, title: string, content: string) {
     this._id = this.generateId();
     this._authorId = authorId;
     this._title = title;
@@ -23,13 +24,13 @@ export class Post {
   }
 
   static validate(authorId: string, title: string, content: string): boolean {
-    if(!authorId){
+    if (!authorId) {
       throw new Error('author invalid!');
     }
-    if(!title){
+    if (!title) {
       throw new Error('title invalid!');
     }
-    if(!content){
+    if (!content) {
       throw new Error('content invalid!');
     }
     return true;
@@ -63,11 +64,11 @@ export class Post {
     return this._comments;
   }
 
-  set title(newTitle: string){
+  set title(newTitle: string) {
     this._title = newTitle;
   }
 
-  set content(newContent: string){
+  set content(newContent: string) {
     this._content = newContent;
   }
 
@@ -75,7 +76,7 @@ export class Post {
     this._comments = comments;
   }
 
-  createComment(authorId: string, content: string): void{
+  createComment(authorId: string, content: string): void {
     const comment = Comment.create(this._id, authorId, content);
     this.addComment(comment);
   }

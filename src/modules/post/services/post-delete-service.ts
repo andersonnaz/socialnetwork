@@ -1,9 +1,9 @@
-import { PostRepository } from "../repositories/post-repository";
+import { PostRepository } from '../repositories/post-repository';
 
 export class PostDeleteService {
   private readonly _postRepository: PostRepository;
 
-  constructor(postRepository: PostRepository){
+  constructor(postRepository: PostRepository) {
     this._postRepository = postRepository;
   }
 

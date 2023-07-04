@@ -1,10 +1,10 @@
-import { PostListByUserService } from "@modules/post/services";
-import { Request, Response } from "express";
+import { PostListByUserService } from '@modules/post/services';
+import { Request, Response } from 'express';
 
 export class PostListByUserController {
   private readonly _postListByUserService: PostListByUserService;
 
-  constructor(postListByUserService: PostListByUserService){
+  constructor(postListByUserService: PostListByUserService) {
     this._postListByUserService = postListByUserService;
   }
 
@@ -16,5 +16,5 @@ export class PostListByUserController {
     } catch (error) {
       return response.status(404).json(error);
     }
-  }
+  };
 }

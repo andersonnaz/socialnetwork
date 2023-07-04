@@ -1,11 +1,11 @@
-import { PostCreateDTO } from "../dto/post-create-DTO";
-import { Post } from "../entities/Post";
-import { PostRepository } from "../repositories/post-repository";
+import { PostCreateDTO } from '../dto/post-create-DTO';
+import { Post } from '../entities/Post';
+import { PostRepository } from '../repositories/post-repository';
 
 export class PostCreateService {
   private readonly _postRepository: PostRepository;
 
-  constructor(postRepository: PostRepository){
+  constructor(postRepository: PostRepository) {
     this._postRepository = postRepository;
   }
 

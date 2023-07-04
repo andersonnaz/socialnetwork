@@ -1,10 +1,10 @@
-import { PostListService } from "@modules/post/services";
-import { Request, Response } from "express";
+import { PostListService } from '@modules/post/services';
+import { Request, Response } from 'express';
 
 export class PostListController {
   private readonly _postListService: PostListService;
 
-  constructor(postListService: PostListService){
+  constructor(postListService: PostListService) {
     this._postListService = postListService;
   }
 
@@ -15,5 +15,5 @@ export class PostListController {
     } catch (error) {
       return response.status(404).json(error);
     }
-  }
+  };
 }

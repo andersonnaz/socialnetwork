@@ -1,6 +1,6 @@
-import { Comment } from "@modules/comment/entities/Comment";
-import { Post } from "../entities/Post";
-import { PostRepository } from "./post-repository";
+import { Comment } from '@modules/comment/entities/Comment';
+import { Post } from '../entities/Post';
+import { PostRepository } from './post-repository';
 
 class PostInMemoryRepository implements PostRepository {
   private _posts: Post[] = [];
@@ -14,17 +14,17 @@ class PostInMemoryRepository implements PostRepository {
   }
 
   listUserPosts(userId: string): Post[] {
-    const filteredPostsByUser = this._posts.filter((post) => {
+    const filteredPostsByUser = this._posts.filter(post => {
       return post.authorId === userId;
-    })
+    });
     return filteredPostsByUser;
   }
 
   findOne(id: string): Post | undefined {
-    const findedPost = this._posts.find((post) => {
+    const findedPost = this._posts.find(post => {
       return post.id === id;
-    })
-    if(!findedPost){
+    });
+    if (!findedPost) {
       throw new Error('post not found!');
     }
     return findedPost;
@@ -32,7 +32,7 @@ class PostInMemoryRepository implements PostRepository {
 
   update(id: string, param: Partial<Post>): Post {
     const post = this.findOne(id);
-    if(!post){
+    if (!post) {
       throw new Error('post not found!');
     }
     Object.assign(post, param);
@@ -41,18 +41,18 @@ class PostInMemoryRepository implements PostRepository {
 
   delete(id: string): void {
     const post = this.findOne(id);
-    if(!post){
+    if (!post) {
       throw new Error('post not found!');
     }
-    const postsFiltered = this._posts.filter((post) => {
+    const postsFiltered = this._posts.filter(post => {
       return post.id !== id;
-    })
+    });
     this._posts = postsFiltered;
   }
 
   createComment(postId: string, authorId: string, content: string): void {
     const post = this.findOne(postId);
-    if(!post){
+    if (!post) {
       throw new Error('post not found!');
     }
     post.createComment(authorId, content);
@@ -60,13 +60,13 @@ class PostInMemoryRepository implements PostRepository {
 
   editComment(postId: string, commentId: string, content: string): Comment {
     const post = this.findOne(postId);
-    if(!post){
+    if (!post) {
       throw new Error('post not found!');
     }
-    const comment = post.comments.find((comment) => {
+    const comment = post.comments.find(comment => {
       return comment.id === commentId;
-    })
-    if(!comment){
+    });
+    if (!comment) {
       throw new Error('comment not found!');
     }
     comment.content = content;
@@ -75,12 +75,12 @@ class PostInMemoryRepository implements PostRepository {
 
   deleteComment(postId: string, commentId: string): void {
     const post = this.findOne(postId);
-    if(!post){
+    if (!post) {
       throw new Error('post not found!');
     }
-    const commentsFiltered = post.comments.filter((comment) => {
+    const commentsFiltered = post.comments.filter(comment => {
       return comment.id !== commentId;
-    })
+    });
     post.comments = commentsFiltered;
   }
 }
