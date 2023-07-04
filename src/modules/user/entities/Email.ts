@@ -1,9 +1,10 @@
+/* eslint-disable no-useless-escape */
 const REGEX_VALIDATE_EMAIL = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 export class Email {
   private readonly _email: string;
   private readonly _name: string;
 
-  private constructor(name: string, email: string){
+  private constructor(name: string, email: string) {
     this._name = name;
     this._email = email;
   }
@@ -14,10 +15,10 @@ export class Email {
   }
 
   static validate(email: string): boolean {
-    if(!email){
+    if (!email) {
       throw new Error('invalid email!');
     }
-    if(!REGEX_VALIDATE_EMAIL.test(email)){
+    if (!REGEX_VALIDATE_EMAIL.test(email)) {
       throw new Error('invalid email!');
     }
     return true;
@@ -30,5 +31,4 @@ export class Email {
   get email(): string {
     return this._email;
   }
-
 }

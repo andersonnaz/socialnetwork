@@ -1,9 +1,9 @@
-import { UserRepository } from "../repositories/user-repository";
+import { UserRepository } from '../repositories/user-repository';
 
 export class UserDeleteFriendshipService {
   private readonly _userRepository: UserRepository;
 
-  constructor(userRepository: UserRepository){
+  constructor(userRepository: UserRepository) {
     this._userRepository = userRepository;
   }
 

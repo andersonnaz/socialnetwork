@@ -1,11 +1,11 @@
-import { UserUpdateDTO } from "../dto/user-update-DTO";
-import { User } from "../entities/User";
-import { UserRepository } from "../repositories/user-repository";
+import { UserUpdateDTO } from '../dto/user-update-DTO';
+import { User } from '../entities/User';
+import { UserRepository } from '../repositories/user-repository';
 
 export class UserUpdateService {
   private readonly _userRepository: UserRepository;
 
-  constructor(userRepository: UserRepository){
+  constructor(userRepository: UserRepository) {
     this._userRepository = userRepository;
   }
 

@@ -1,7 +1,7 @@
-import { User } from "../entities/User";
-import { UserRepository, Tuple } from "./user-repository";
+import { User } from '../entities/User';
+import { UserRepository, Tuple } from './user-repository';
 
-class UserInMemoryRepository implements UserRepository{
+class UserInMemoryRepository implements UserRepository {
   private _database: User[] = [];
   private _friendship: Tuple[] = [];
 
@@ -14,26 +14,26 @@ class UserInMemoryRepository implements UserRepository{
   }
 
   delete(id: string): void {
-    const databaseFiltered = this._database.filter((user) => {
+    const databaseFiltered = this._database.filter(user => {
       return user.id !== id;
-    })
+    });
     this._database = databaseFiltered;
   }
 
   update(id: string, param: Partial<User>): User {
     const user = this.findOne(id);
-    if(!user){
+    if (!user) {
       throw new Error('user not found!');
     }
     Object.assign(user, param);
     return user;
   }
 
-  findOne(id: string): User | undefined{
-    const user = this._database.find((user) => {
+  findOne(id: string): User | undefined {
+    const user = this._database.find(user => {
       return user.id === id;
-    })
-    if(!user){
+    });
+    if (!user) {
       throw new Error('user not found!');
     }
     return user;
@@ -41,13 +41,13 @@ class UserInMemoryRepository implements UserRepository{
 
   createFriendship(userId: string, friendId: string): Tuple[] {
     const user = this.findOne(userId);
-    if(!user){
+    if (!user) {
       throw new Error('user not found!');
     }
-    const findedUser = this._friendship.find((user) => {
+    const findedUser = this._friendship.find(user => {
       return user[0] === userId;
-    })
-    if(!findedUser){
+    });
+    if (!findedUser) {
       this._friendship.push([userId, [friendId]]);
       return this._friendship;
     }
@@ -57,18 +57,18 @@ class UserInMemoryRepository implements UserRepository{
 
   deleteFriendship(userId: string, friendId: string): void {
     const user = this.findOne(userId);
-    if(!user){
+    if (!user) {
       throw new Error('user not found!');
     }
-    const findedUser = this._friendship.find((user) => {
+    const findedUser = this._friendship.find(user => {
       return user[0] === userId;
-    })
-    if(!findedUser){
+    });
+    if (!findedUser) {
       throw new Error('user not found!');
     }
-    const filteredFriendship = findedUser[1].filter((friend) => {
+    const filteredFriendship = findedUser[1].filter(friend => {
       return friend !== friendId;
-    })
+    });
     findedUser[1] = filteredFriendship;
   }
 }

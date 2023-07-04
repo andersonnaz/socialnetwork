@@ -1,6 +1,7 @@
-import { Address } from "./Address";
-import { Cpf } from "./Cpf";
-import { Email } from "./Email";
+/* eslint-disable @typescript-eslint/adjacent-overload-signatures */
+import { Address } from './Address';
+import { Cpf } from './Cpf';
+import { Email } from './Email';
 import { v4 as uuid } from 'uuid';
 
 export class User {
@@ -11,7 +12,13 @@ export class User {
   private _address: Address;
   private _password: string;
 
-  private constructor(name: string, address: Address, cpf: Cpf, email: Email, password: string){
+  private constructor(
+    name: string,
+    address: Address,
+    cpf: Cpf,
+    email: Email,
+    password: string,
+  ) {
     this._id = this.generateId();
     this._name = name;
     this._address = address;
@@ -20,7 +27,15 @@ export class User {
     this._password = password;
   }
 
-  static create(name: string, street: string, number: number, neighborhood: string, cpfNumber: string, userEmail: string, password: string): User {
+  static create(
+    name: string,
+    street: string,
+    number: number,
+    neighborhood: string,
+    cpfNumber: string,
+    userEmail: string,
+    password: string,
+  ): User {
     this.validate(name, password);
     const address = Address.create(street, number, neighborhood);
     const cpf = Cpf.create(name, cpfNumber);
@@ -29,10 +44,10 @@ export class User {
   }
 
   static validate(name: string, password: string): boolean {
-    if(!name){
+    if (!name) {
       throw new Error('invalid name!');
     }
-    if(!password){
+    if (!password) {
       throw new Error('invalid password!');
     }
     return true;
@@ -62,7 +77,7 @@ export class User {
     return `
       Rua: ${this._address.street}, ${this._address.number}
       Bairro: ${this._address.neighborhood}
-    `
+    `;
   }
 
   get password(): string {
@@ -70,30 +85,30 @@ export class User {
   }
 
   set name(newName: string) {
-    if(!newName){
-      throw new Error('invalid new Name!')
+    if (!newName) {
+      throw new Error('invalid new Name!');
     }
-    if(newName === this._name){
-      throw new Error('new name is equal!')
+    if (newName === this._name) {
+      throw new Error('new name is equal!');
     }
     this._name = newName;
   }
 
-  set address(newAddress: Address){
-    if(!newAddress.street){
-      throw new Error('invalid new street!')
+  set address(newAddress: Address) {
+    if (!newAddress.street) {
+      throw new Error('invalid new street!');
     }
-    if(!newAddress.number){
+    if (!newAddress.number) {
       throw new Error('invalid new number!');
     }
-    if(!newAddress.neighborhood){
+    if (!newAddress.neighborhood) {
       throw new Error('invalid new neighborhood!');
     }
     this._address = newAddress;
   }
 
-  set password(newPassword: string){
-    if(!newPassword){
+  set password(newPassword: string) {
+    if (!newPassword) {
       throw new Error('invalid new Password!');
     }
     this._password = newPassword;

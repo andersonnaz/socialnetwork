@@ -1,4 +1,4 @@
-import { Router } from "express";
+import { Router } from 'express';
 import {
   userCreateController,
   userCreateFriendshipController,
@@ -6,8 +6,8 @@ import {
   userDeleteFriendshipController,
   userFindController,
   userListController,
-  userUpdateController
-} from "../controllers";
+  userUpdateController,
+} from '../controllers';
 
 const userRouter = Router();
 

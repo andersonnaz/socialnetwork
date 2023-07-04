@@ -1,7 +1,7 @@
-import messageRouter from "@modules/message/routes/message-routes";
-import postRouter from "@modules/post/routes/post-routes";
-import userRouter from "@modules/user/routes/user-routes";
-import { Router } from "express";
+import messageRouter from '@modules/message/routes/message-routes';
+import postRouter from '@modules/post/routes/post-routes';
+import userRouter from '@modules/user/routes/user-routes';
+import { Router } from 'express';
 
 const router = Router();
 

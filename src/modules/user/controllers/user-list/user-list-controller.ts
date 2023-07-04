@@ -1,10 +1,10 @@
-import { UserListService } from "@modules/user/services";
-import { Request, Response } from "express";
+import { UserListService } from '@modules/user/services';
+import { Request, Response } from 'express';
 
 export class UserListController {
   private readonly _userListService: UserListService;
 
-  constructor(userListService: UserListService){
+  constructor(userListService: UserListService) {
     this._userListService = userListService;
   }
 
@@ -15,5 +15,5 @@ export class UserListController {
     } catch (error) {
       return response.status(404).json(error);
     }
-  }
+  };
 }

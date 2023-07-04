@@ -1,10 +1,10 @@
-import { UserDeleteService } from "@modules/user/services";
-import { Request, Response } from "express";
+import { UserDeleteService } from '@modules/user/services';
+import { Request, Response } from 'express';
 
 export class UserDeleteController {
   private readonly _userDeleteService: UserDeleteService;
 
-  constructor(userDeleteService: UserDeleteService){
+  constructor(userDeleteService: UserDeleteService) {
     this._userDeleteService = userDeleteService;
   }
 
@@ -16,5 +16,5 @@ export class UserDeleteController {
     } catch (error) {
       return response.status(404).json(error);
     }
-  }
+  };
 }
