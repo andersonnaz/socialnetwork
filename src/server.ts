@@ -1,7 +1,7 @@
 import express from 'express';
-import router from "@shared/http/routes";
+import router from '@shared/http/routes';
 
-const app = express()
+const app = express();
 
 app.use(express.json());
 app.use(router);
