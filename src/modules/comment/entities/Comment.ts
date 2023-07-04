@@ -6,7 +6,7 @@ export class Comment {
   private readonly _createdAt: Date;
   private _content: string;
 
-  private constructor(postId: string, authorId: string, content: string){
+  private constructor(postId: string, authorId: string, content: string) {
     this._id = this.generateId();
     this._postId = postId;
     this._authorId = authorId;
@@ -20,13 +20,13 @@ export class Comment {
   }
 
   static validate(postId: string, authorId: string, content: string): boolean {
-    if(!postId){
+    if (!postId) {
       throw new Error('post id invalid!');
     }
-    if(!authorId){
+    if (!authorId) {
       throw new Error('author id invalid!');
     }
-    if(!content){
+    if (!content) {
       throw new Error('content invalid!');
     }
     return true;
