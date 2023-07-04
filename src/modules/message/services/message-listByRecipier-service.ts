@@ -1,10 +1,10 @@
-import { Message } from "../entities/Message";
-import { MessageRepository } from "../repositories/message-repository";
+import { Message } from '../entities/Message';
+import { MessageRepository } from '../repositories/message-repository';
 
 export class MessageListByRecipierService {
   private readonly _messageRepository: MessageRepository;
 
-  constructor(messageRepository: MessageRepository){
+  constructor(messageRepository: MessageRepository) {
     this._messageRepository = messageRepository;
   }
 

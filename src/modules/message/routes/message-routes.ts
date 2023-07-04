@@ -1,11 +1,11 @@
-import { Router } from "express";
+import { Router } from 'express';
 import {
   messageCreateController,
   messageDeleteController,
   messageFindController,
   messageListByRecipierController,
-  messageListBySenderController
-} from "../controllers";
+  messageListBySenderController,
+} from '../controllers';
 
 const messageRouter = Router();
 

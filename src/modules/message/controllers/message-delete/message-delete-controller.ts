@@ -1,10 +1,10 @@
-import { MessageDeleteService } from "@modules/message/services";
-import { Request, Response } from "express";
+import { MessageDeleteService } from '@modules/message/services';
+import { Request, Response } from 'express';
 
 export class MessageDeleteController {
   private readonly _messageDeleteService: MessageDeleteService;
 
-  constructor(messageDeleteService: MessageDeleteService){
+  constructor(messageDeleteService: MessageDeleteService) {
     this._messageDeleteService = messageDeleteService;
   }
 
@@ -16,5 +16,5 @@ export class MessageDeleteController {
     } catch (error) {
       return response.status(404).json(error);
     }
-  }
+  };
 }

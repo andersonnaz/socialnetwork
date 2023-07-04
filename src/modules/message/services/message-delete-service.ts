@@ -1,9 +1,9 @@
-import { MessageRepository } from "../repositories/message-repository";
+import { MessageRepository } from '../repositories/message-repository';
 
 export class MessageDeleteService {
   private readonly _messageRepository: MessageRepository;
 
-  constructor(messageRepository: MessageRepository){
+  constructor(messageRepository: MessageRepository) {
     this._messageRepository = messageRepository;
   }
 

@@ -1,4 +1,4 @@
-import { v4 as uuid } from "uuid";
+import { v4 as uuid } from 'uuid';
 export class Message {
   private readonly _id: string;
   private readonly _sender: string;
@@ -6,7 +6,7 @@ export class Message {
   private readonly _content: string;
   private readonly _createdAt: Date;
 
-  private constructor(sender: string, recipier: string, content: string){
+  private constructor(sender: string, recipier: string, content: string) {
     this._id = this.generateId();
     this._sender = sender;
     this._recipier = recipier;
@@ -20,13 +20,13 @@ export class Message {
   }
 
   static validade(sender: string, recipier: string, content: string): boolean {
-    if(!sender){
+    if (!sender) {
       throw new Error('sender user invalid!');
     }
-    if(!recipier){
+    if (!recipier) {
       throw new Error('recipier user invalid!');
     }
-    if(!content){
+    if (!content) {
       throw new Error('content invalid!');
     }
     return true;

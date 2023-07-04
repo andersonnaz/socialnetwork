@@ -1,10 +1,10 @@
-import { MessageListByRecipierService } from "@modules/message/services";
-import { Request, Response, response } from "express";
+import { MessageListByRecipierService } from '@modules/message/services';
+import { Request, Response } from 'express';
 
 export class MessageListByRecipierController {
   private readonly _messageListByRecipierService: MessageListByRecipierService;
 
-  constructor(messageListByRecipierService: MessageListByRecipierService){
+  constructor(messageListByRecipierService: MessageListByRecipierService) {
     this._messageListByRecipierService = messageListByRecipierService;
   }
 
@@ -16,5 +16,5 @@ export class MessageListByRecipierController {
     } catch (error) {
       return response.status(404).json(error);
     }
-  }
+  };
 }

@@ -1,10 +1,10 @@
-import { MessageListBySenderService } from "@modules/message/services";
-import { Request, Response } from "express";
+import { MessageListBySenderService } from '@modules/message/services';
+import { Request, Response } from 'express';
 
 export class MessageListBySenderController {
   private readonly _messageListBySenderService: MessageListBySenderService;
 
-  constructor(messageListBySenderService: MessageListBySenderService){
+  constructor(messageListBySenderService: MessageListBySenderService) {
     this._messageListBySenderService = messageListBySenderService;
   }
 
@@ -16,5 +16,5 @@ export class MessageListBySenderController {
     } catch (error) {
       return response.status(404).json(error);
     }
-  }
+  };
 }

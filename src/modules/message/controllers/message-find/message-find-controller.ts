@@ -1,10 +1,10 @@
-import { MessageFindService } from "@modules/message/services";
-import { Request, Response } from "express";
+import { MessageFindService } from '@modules/message/services';
+import { Request, Response } from 'express';
 
 export class MessageFindController {
   private readonly _messageFindService: MessageFindService;
 
-  constructor(messageFindService: MessageFindService){
+  constructor(messageFindService: MessageFindService) {
     this._messageFindService = messageFindService;
   }
 
@@ -16,5 +16,5 @@ export class MessageFindController {
     } catch (error) {
       return response.status(404).json(error);
     }
-  }
+  };
 }
